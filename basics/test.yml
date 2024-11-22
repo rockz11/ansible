@@ -1,0 +1,12 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install nginx
+    ansible.builtin.dnf:
+      name: nginx
+      state: present
+
+  - name: start nginx
+    ansible.builtin.systemd_service:
+      name: nginx
+      state: installed
